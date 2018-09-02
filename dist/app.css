@@ -1,0 +1,30 @@
+
+h1{
+	color: red;
+	text-align: center;
+}
+.active{
+	color: red;
+}
+
+
+h2[data-v-61ae5fa0]{
+	color: black;
+}
+.default[data-v-61ae5fa0]{
+	background-color: rgba(0, 0, 0, 0.2);
+}
+.active[data-v-61ae5fa0]{
+	background-color: skyblue;
+	padding: 10px;
+	border: 2px solid #ccc;
+}
+.text-warning[data-v-61ae5fa0]{
+	color: red;
+}
+
+
+nav[data-v-957c9522]{
+	text-align: center;
+}
+
