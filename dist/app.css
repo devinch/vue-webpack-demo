@@ -8,23 +8,116 @@ h1{
 }
 
 
-h2[data-v-61ae5fa0]{
+
+
+
+
+
+
+
+
+
+nav[data-v-6c36d3c0]{
+	text-align: center;
+}
+nav > a[data-v-6c36d3c0]{
+	font-size: 1.2em;
+	display: inline-block;
+	margin-right: 1em;
+}
+
+
+h2[data-v-dc73e286]{
 	color: black;
 }
-.default[data-v-61ae5fa0]{
+.default[data-v-dc73e286]{
 	background-color: rgba(0, 0, 0, 0.2);
 }
-.active[data-v-61ae5fa0]{
+.active[data-v-dc73e286]{
 	background-color: skyblue;
 	padding: 10px;
 	border: 2px solid #ccc;
 }
-.text-warning[data-v-61ae5fa0]{
+.text-warning[data-v-dc73e286]{
 	color: red;
 }
 
 
-nav[data-v-957c9522]{
+.form-item > label[data-v-031b3385]{
+	vertical-align: top;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h4[data-v-0c29aeb2]{
 	text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -33,7 +33,10 @@ module.exports = merge(baseWebpackConfig, {
   },
   plugins: [
     new FriendlyErrorsWebpackPlugin({
-      clearConsole: true
+      clearConsole: true,
+      compilationSuccessInfo: {
+        messages: ['You application is running here http://127.0.0.1:8080']
+      }
     })
   ]
 })

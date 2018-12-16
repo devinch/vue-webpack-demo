@@ -6,7 +6,11 @@
 			<router-link to="/form">表单</router-link>
 			<router-link to="/event">事件</router-link>
 			<router-link to="/component">组件</router-link>
-			<router-view name="home"></router-view>
+			<router-link to="/transition">过度与动画</router-link>
+			<router-link to="/user">路由</router-link>
+
+			
+			<router-view></router-view>
 		</nav>
 	</div>
 </template>

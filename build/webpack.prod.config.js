@@ -1,6 +1,6 @@
 'use strict'
 /**
- * webpack 生成模式配置
+ * webpack 生产模式配置
  */
 const path = require('path')
 const webpack = require('webpack')
@@ -13,7 +13,11 @@ module.exports = merge(baseWebpackConfig, {
   mode: 'production',
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      minSize: 1000,
+      maxSize: 0,
+      name: true
+
     }
   },
   module: {

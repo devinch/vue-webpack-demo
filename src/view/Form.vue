@@ -14,6 +14,7 @@
 			</div>
 			<div class="form-item">
 				<input type="checkbox" v-model="checked"><span>{{checked}}</span>
+				<input type="checkbox" v-model="toggle" true-value="yes" false-value="no"><span>{{toggle}}</span>
 			</div>
 			<div class="form-item">
 				<input type="checkbox" v-model="checkedNames" value="jack">
@@ -68,10 +69,11 @@
 				checkedNames: ['jack'],
 				gender: '男',
 				selected: '',
-				selectedOpt: null
+				selectedOpt: 'A',
+				toggle: ''
 			}
 		},
-		computed: {
+		computed: {   
 			options: function () {
 				return [
 					{text: 'one',value: 'A'},

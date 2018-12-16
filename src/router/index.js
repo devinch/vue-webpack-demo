@@ -7,6 +7,11 @@ import Form from '@/view/Form.vue'
 import Event from '@/view/Event.vue'
 import NotFound from '@/view/404.vue'
 import Components from '@/view/components.vue'
+import Transition from '@/view/transition.vue'
+import User from '@/view/user.vue'
+
+import Profile from '@/components/profile.vue'
+import Posts from '@/components/posts'
 
 Vue.use(Router)
 
@@ -23,7 +28,7 @@ export default new Router({
     },
     {
       path: '/helloworld',
-      name: 'hellowrold',
+      name: 'hello',
       component: Hellowrold
     },
     {
@@ -45,6 +50,32 @@ export default new Router({
       path: '/event',
       name: 'event',
       component: Event
+    },
+    {
+      path: '/transition',
+      name: 'transition',
+      component: Transition
+    },
+    {
+      path: '/user',
+      name: 'user',
+      components: {
+        default: User,
+        posts: Posts,
+        profile: Profile
+      },
+      children: [
+        {
+          path: 'profile',
+          name: 'profile',
+          component: Profile
+        },
+        {
+          path: 'posts',
+          name: 'posts',
+          component: Posts
+        }
+      ]
     },
     {
       path: '*',

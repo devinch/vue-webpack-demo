@@ -9,12 +9,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
