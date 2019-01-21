@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<h2>hello world!</h2>
+		<h4>count {{count}}</h4>
 	</div>
 </template>
 
@@ -15,6 +16,12 @@
 		data() {
 			return {
 				name: 'hello vue!'
+			}
+		},
+
+		computed: {
+			count(){
+				return this.$store.state.count
 			}
 		},
 

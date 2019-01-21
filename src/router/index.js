@@ -52,7 +52,7 @@ const router = new Router({
       meta: { requiresAuth: true },
       children: [
         {
-          path: '',
+          path: 'dynamicRouter',
           component: UserHome
         },
         {
@@ -113,6 +113,11 @@ const router = new Router({
           component: Posts
         }
       ] */
+    },
+    {
+      path: '/vuex-demo',
+      name: 'vuexDemo',
+      component: () => import('@/view/vuexDemo.vue')
     },
     {
       path: '*',

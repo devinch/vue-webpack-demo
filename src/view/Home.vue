@@ -12,6 +12,7 @@
 
 			<router-link to="/dynamicRouter/1234">动态路由匹配</router-link>
 			<router-link to="/user">路由</router-link>
+			<router-link to="/vuex-demo">vuex示例</router-link>
 
 			
 			<router-view></router-view>
