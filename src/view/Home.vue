@@ -7,6 +7,7 @@
 			<router-link to="/event">事件</router-link>
 			<router-link to="/component">组件</router-link>
 			<router-link to="/transition">过度与动画</router-link>
+			<router-link to="/dynamicRouter/1234">动态路由匹配</router-link>
 			<router-link to="/user">路由</router-link>
 
 			

@@ -9,13 +9,15 @@ import NotFound from '@/view/404.vue'
 import Components from '@/view/components.vue'
 import Transition from '@/view/transition.vue'
 import User from '@/view/user.vue'
+import DynamicRouter from '@/view/dynamicRouter.vue'
+import UserHome from '@/view/userHome.vue'
 
 import Profile from '@/components/profile.vue'
 import Posts from '@/components/posts'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -24,12 +26,45 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: '/helloworld',
+          name: 'hello',
+          component: Hellowrold,
+          beforeEnter: (to, from, next) => {
+            console.log('执行路由独享守卫')
+            next()
+          }
+        }
+      ]
     },
+    // {
+    //   path: '/helloworld',
+    //   name: 'hello',
+    //   component: Hellowrold
+    // },
     {
-      path: '/helloworld',
-      name: 'hello',
-      component: Hellowrold
+      path: '/dynamicRouter/:id',
+      name: 'dynamicRouter',
+      props: true,
+      component: DynamicRouter,
+      children: [
+        {
+          path: '',
+          component: UserHome
+        },
+        {
+          path: 'profile',
+          name: 'dyProfile',
+          component: Profile
+        },
+        {
+          path: 'posts',
+          name: 'dyPosts',
+          component: Posts
+        }
+      ]
     },
     {
       path: '/basic',
@@ -49,6 +84,7 @@ export default new Router({
     {
       path: '/event',
       name: 'event',
+      alias: '/vueevent',
       component: Event
     },
     {
@@ -63,8 +99,8 @@ export default new Router({
         default: User,
         posts: Posts,
         profile: Profile
-      },
-      children: [
+      }
+      /* children: [
         {
           path: 'profile',
           name: 'profile',
@@ -75,7 +111,7 @@ export default new Router({
           name: 'posts',
           component: Posts
         }
-      ]
+      ] */
     },
     {
       path: '*',
@@ -84,3 +120,23 @@ export default new Router({
     }
   ]
 })
+
+// 全局前置导航守卫
+router.beforeEach((to, from, next) => {
+  console.log('to', to)
+  console.log('to', from)
+  console.log('执行全局前置守卫')
+  next()
+})
+
+router.beforeResolve((to, from, next) => {
+  console.log('执行全局解析守卫')
+
+  next()
+})
+
+router.afterEach((to, from) => {
+  console.log('执行全局后置守卫')
+})
+
+export default router
