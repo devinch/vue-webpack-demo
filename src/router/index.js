@@ -48,7 +48,8 @@ const router = new Router({
       path: '/dynamicRouter/:id',
       name: 'dynamicRouter',
       props: true,
-      component: DynamicRouter,
+      component: () => import('../view/dynamicRouter.vue'),
+      meta: { requiresAuth: true },
       children: [
         {
           path: '',
@@ -118,7 +119,11 @@ const router = new Router({
       name: 'notfound',
       component: NotFound
     }
-  ]
+  ],
+
+  scrollBehavior (to, from, savedPosition) {
+    return savedPosition
+  }
 })
 
 // 全局前置导航守卫
@@ -126,6 +131,11 @@ router.beforeEach((to, from, next) => {
   console.log('to', to)
   console.log('to', from)
   console.log('执行全局前置守卫')
+
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    console.log('has meta')
+  }
+
   next()
 })
 
