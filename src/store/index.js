@@ -15,6 +15,9 @@ const store = new Vuex.Store({
   mutations: {
     increment (state) {
       state.count++
+    },
+    incrementPayload (state, payload) {
+      state.count += payload.amount
     }
   },
   getters: {
@@ -23,6 +26,16 @@ const store = new Vuex.Store({
     },
     doneTodosCount: (state, getters) => {
       return getters.doneTodos.length
+    }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment')
+    },
+    incrementAsync ({commit}) {
+      setTimeout(() => {
+        commit('incrementPayload')
+      }, 3000)
     }
   }
 })

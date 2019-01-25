@@ -7,7 +7,9 @@
 			<li v-for="todo in doneTodos" v-bind:key="todo.id">{{todo.id}}.{{todo.text}}</li>
 		</ul>
 		<h4>{{ doneTodosCount }}</h4>
-		<div><button @click="countPlus">count plugs</button></div>
+		<div><button @click="countPlus">count plus</button></div>
+		<div><button @click="countPlusAction">count plus2</button></div>
+		<div><button @click="countPlusAsync">count plus3</button></div>
 	</div>
 </template>
 
@@ -68,7 +70,14 @@
 		methods: {
 			...mapMutations({
 				countPlus: 'increment'
-			})
+			}),
+			countPlusAction () {
+				this.$store.dispatch('increment')
+			},
+			countPlusAsync () {
+				// this.$store.dispatch('incrementAsync',{amount: 10})
+				this.$store.commit('incrementPayload', { amount: 10 })
+			}
 		}
 	}
 </script>
